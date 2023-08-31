@@ -1,1 +1,2 @@
-# eShop_DNICK
+Django EShop
+

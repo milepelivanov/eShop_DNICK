@@ -1,2 +1,2 @@
-Django EShop
+#Django EShop
 

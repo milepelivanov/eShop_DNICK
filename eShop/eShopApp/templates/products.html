@@ -6,11 +6,11 @@
           integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <style>
         body {
-            background-color: #B5FFFF; /* Light blue background color */
+            background-color: #B5FFFF; 
         }
 
         .product-card {
-            max-width: 300px; /* Adjust this value to your preference */
+            max-width: 300px; 
             margin: auto;
 
         }
@@ -20,12 +20,12 @@
             integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
             crossorigin="anonymous"></script>
     <script>
-        // Wait for the page to load
+        
         document.addEventListener("DOMContentLoaded", function () {
-            // Get the error message element
+            
             var errorMessage = document.getElementById("error-message");
 
-            // If the error message element exists
+        
             if (errorMessage) {
                 // Set a timeout to hide the error message after 3 seconds
                 setTimeout(function () {
@@ -80,7 +80,7 @@
     <form method="get" action="{% url 'products' %}" class="form-inline">
         <div class="form-group">
             <select name="category" class="form-control mr-2" style="width: 400px; display: inline">
-                <option value="">See All</option> <!-- "See All" option -->
+                <option value="">See All</option> 
                 {% for category in categories %}
                 <option value="{{ category }}">{{ category }}</option>
                 {% endfor %}

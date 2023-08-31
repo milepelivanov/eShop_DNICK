@@ -32,7 +32,7 @@ class ShoppingCartAdmin(admin.ModelAdmin):
         super().save_model(request, obj, form, change)
 
     def has_add_permission(self, request):
-        # Check if the user already has a shopping cart
+        
         user_has_cart = ShoppingCart.objects.filter(user=request.user).exists()
         return not user_has_cart
 

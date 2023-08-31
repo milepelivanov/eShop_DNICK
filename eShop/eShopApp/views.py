@@ -22,7 +22,7 @@ class CustomLoginView(LoginView):
 
 def custom_logout(request):
     logout(request)
-    return redirect('login')  # Redirect to your login page
+    return redirect('login')
 
 
 def register(request):
@@ -48,7 +48,7 @@ def register(request):
 def delete_product(request, product_id):
     product = get_object_or_404(Product, id=product_id)
 
-    # Check if the user has permission to delete the product
+
     if request.user.userprofile.user_type == 'seller':
         product.delete()
 
@@ -111,7 +111,7 @@ def add_to_cart(request, product_id):
     context = {
         'products': Product.objects.all(),
         'user': request.user,
-        'error_message': error_message,  # Pass the error message to the template
+        'error_message': error_message,  
     }
     return render(request, "products.html", context)
 
@@ -145,10 +145,10 @@ def checkout(request):
         user_input = request.POST.get('user')
         address = request.POST.get('address')
 
-        # Generate a random order number
+       
         order_number = "#" + ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(10))
 
-        # Create an Order instance
+        
         order = Order.objects.create(
             user=user,
             order_number=order_number,
@@ -157,7 +157,7 @@ def checkout(request):
             address=address
         )
 
-        # Create OrderProduct instances based on shopping cart products
+        
         for cart_product in shopping_cart_products:
             OrderProduct.objects.create(
                 order=order,
@@ -166,10 +166,10 @@ def checkout(request):
                 price=cart_product.product.price * cart_product.quantity
             )
 
-        # Clear the shopping cart after creating the order
+    
         shopping_cart_products.delete()
 
-        # Redirect to a thank you page or order summary page
+  
         return redirect('products')
 
     context = {'shopping_cart_products': shopping_cart_products, 'total_price': total_price}

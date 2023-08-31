@@ -47,7 +47,7 @@ class Product(models.Model):
             ("custom_add_product", "Can add product"),
             ("custom_edit_product", "Can edit product"),
             ("custom_delete_product", "Can delete product")
-            # Add more custom permissions as needed
+            
         ]
 
     def __str__(self):
